@@ -1,0 +1,13 @@
+name: iplimiter
+main: com.lucatm11.IpLimiter.IpLimiter
+version: B1
+commands:
+  iplimiter:
+    description: Main command.
+permissions:
+  iplimiter.help:
+    description: Allows the player to view the help screen.
+  iplimiter.checkconnections:
+    description: Allows the player to check the active connections of another player.
+  iplimiter.reload:
+    description: Allows the player to reload the configuration file of the plugin.
