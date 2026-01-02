@@ -3,26 +3,20 @@ package com.lucatm11.iplimiter;
 import java.util.HashMap;
 
 import org.bukkit.Bukkit;
+import org.bukkit.entity.Player;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import com.lucatm11.iplimiter.bstats.Metrics;
 import com.lucatm11.iplimiter.commands.CommandRouter;
 import com.lucatm11.iplimiter.listeners.Join;
 import com.lucatm11.iplimiter.listeners.Leave;
-import com.lucatm11.iplimiter.listeners.ServerReload;
 import com.lucatm11.iplimiter.utils.Configuration;
 
 public class IpLimiter extends JavaPlugin {
-  private final ServerReload serverReload;
-
   public Configuration.Messages messages;
   public Configuration.Config config;
 
   public HashMap<String, Integer> playersByIP;
-
-  public IpLimiter() {
-    this.serverReload = new ServerReload(this);
-  }
 
   public void onEnable() {
     saveDefaultConfig();
@@ -30,9 +24,11 @@ public class IpLimiter extends JavaPlugin {
 
     Metrics metrics = new Metrics(this, 28657);
 
-    if(config.kickAllPlayersReload) {
-      if(!Bukkit.getOnlinePlayers().isEmpty()) {
-        serverReload.onReload();
+    if (config.kickAllPlayersReload) {
+      if (!Bukkit.getOnlinePlayers().isEmpty()) {
+        for (Player player : Bukkit.getOnlinePlayers()) {
+          player.kickPlayer(messages.serverReloadKick);
+        }
       }
     }
 
