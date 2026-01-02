@@ -2,10 +2,10 @@ package com.lucatm11.iplimiter;
 
 import java.util.HashMap;
 
-import org.bstats.bukkit.Metrics;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
 
+import com.lucatm11.iplimiter.bstats.Metrics;
 import com.lucatm11.iplimiter.commands.CommandRouter;
 import com.lucatm11.iplimiter.listeners.Join;
 import com.lucatm11.iplimiter.listeners.Leave;

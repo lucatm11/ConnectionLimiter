@@ -1,5 +1,5 @@
 name: iplimiter
-main: com.lucatm11.IpLimiter.IpLimiter
+main: com.lucatm11.iplimiter.IpLimiter
 version: B2
 commands:
   iplimiter:
