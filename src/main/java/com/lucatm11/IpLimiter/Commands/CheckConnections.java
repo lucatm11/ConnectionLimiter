@@ -17,12 +17,12 @@ public class CheckConnections implements CommandExecutor{
 
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         if(!sender.hasPermission("iplimiter.checkconnections")) {
-            sender.sendMessage(ipLimiter.noPermission);
+            sender.sendMessage(ipLimiter.messages.noPermission);
             return true;
         }
 
         if(args.length == 1) {
-            sender.sendMessage(ipLimiter.help);
+            sender.sendMessage(ipLimiter.messages.help);
             return true;
         }
 
@@ -30,14 +30,14 @@ public class CheckConnections implements CommandExecutor{
             Player target = Bukkit.getPlayer(args[1]);
 
             if (target == null) {
-                sender.sendMessage(ipLimiter.offlinePlayer);
+                sender.sendMessage(ipLimiter.messages.offlinePlayer);
                 return true;
             }
 
             String ip = target.getAddress().getHostName();
             Integer connections = ipLimiter.playersByIP.get(ip);
 
-            sender.sendMessage(ipLimiter.checkConnections.replace("{player}", target.getName()).replace("{ip}", ip).replace("{connections}", Integer.toString(connections)));
+            sender.sendMessage(ipLimiter.messages.checkConnections.replace("{player}", target.getName()).replace("{ip}", ip).replace("{connections}", Integer.toString(connections)));
             return true;
         }
 

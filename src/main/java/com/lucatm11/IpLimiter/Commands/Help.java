@@ -15,11 +15,11 @@ public class Help implements CommandExecutor {
 
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         if(!sender.hasPermission("iplimiter.help")) {
-            sender.sendMessage(ipLimiter.noPermission);
+            sender.sendMessage(ipLimiter.messages.noPermission);
             return true;
         }
 
-        sender.sendMessage(ipLimiter.help);
+        sender.sendMessage(ipLimiter.messages.help);
 
         return true;
     }

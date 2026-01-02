@@ -9,22 +9,15 @@ import com.lucatm11.IpLimiter.Commands.CommandRouter;
 import com.lucatm11.IpLimiter.Listeners.Join;
 import com.lucatm11.IpLimiter.Listeners.Leave;
 import com.lucatm11.IpLimiter.Listeners.ServerReload;
-import com.lucatm11.IpLimiter.Utils.Utils;
+import com.lucatm11.IpLimiter.Utils.Configuration;
 
 public class IpLimiter extends JavaPlugin {
   private final ServerReload serverReload;
 
-  public HashMap<String, Integer> playersByIP;
+  public Configuration.Messages messages;
+  public Configuration.Config config;
 
-  public Integer maxIpsAllowed;
-  public String noPermission;
-  public String tooManyConnections;
-  public String offlinePlayer;
-  public String checkConnections;
-  public String help;
-  public String reloaded;
-  public boolean kickAllPlayersReload;
-  public String serverReloadKick;
+  public HashMap<String, Integer> playersByIP;
 
   public IpLimiter() {
     this.serverReload = new ServerReload(this);
@@ -34,7 +27,7 @@ public class IpLimiter extends JavaPlugin {
     saveDefaultConfig();
     loadConfiguration();
 
-    if(kickAllPlayersReload) {
+    if(config.kickAllPlayersReload) {
       if(!Bukkit.getOnlinePlayers().isEmpty()) {
         serverReload.onReload();
       }
@@ -48,14 +41,8 @@ public class IpLimiter extends JavaPlugin {
   }
 
   public void loadConfiguration() {
-    maxIpsAllowed = getConfig().getInt("max-ips-allowed");
-    noPermission = Utils.colorize(getConfig().getString("messages.no-permission"));
-    tooManyConnections = Utils.colorize(getConfig().getString("messages.too-many-connections"));
-    offlinePlayer = Utils.colorize(getConfig().getString("messages.offline-player"));
-    checkConnections = Utils.colorize(getConfig().getString("messages.checkconnections"));
-    help = Utils.colorize(getConfig().getString("messages.help"));
-    reloaded = Utils.colorize(getConfig().getString("messages.reloaded"));
-    kickAllPlayersReload = getConfig().getBoolean("kick-all-players-reload");
-    serverReloadKick = Utils.colorize(getConfig().getString("messages.server-reload-kick"));
+    Configuration configuration = new Configuration();
+    configuration.new Config(getConfig());
+    configuration.new Messages(getConfig());
   }
 }

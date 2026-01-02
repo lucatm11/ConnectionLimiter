@@ -14,7 +14,7 @@ public class ServerReload {
 
     public void onReload() {
         for (Player player : Bukkit.getOnlinePlayers()) {
-            player.kickPlayer(ipLimiter.serverReloadKick);
+            player.kickPlayer(ipLimiter.messages.serverReloadKick);
         }
     }
 }

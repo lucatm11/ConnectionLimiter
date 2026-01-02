@@ -25,8 +25,8 @@ public class Join implements Listener {
         Integer connections = ipLimiter.playersByIP.get(ip);
         ipLimiter.playersByIP.put(ip, connections + 1);
 
-        if(connections > ipLimiter.maxIpsAllowed) {
-            event.disallow(Result.KICK_OTHER, ipLimiter.tooManyConnections);
+        if(connections > ipLimiter.config.maxIpsAllowed) {
+            event.disallow(Result.KICK_OTHER, ipLimiter.messages.tooManyConnections);
         }
     }
 }
