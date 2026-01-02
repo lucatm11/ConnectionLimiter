@@ -1,4 +1,4 @@
-max-ips-allowed: 1
+max-ips-allowed: 2
 kick-all-players-reload: true # If you disable this and you /reload you will encounter errors.
 
 messages:
