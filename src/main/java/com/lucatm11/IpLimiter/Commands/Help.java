@@ -6,10 +6,10 @@ import org.bukkit.command.CommandSender;
 
 import com.lucatm11.IpLimiter.IpLimiter;
 
-public class IpLimiterCommand implements CommandExecutor {
+public class Help implements CommandExecutor {
     private final IpLimiter ipLimiter;
 
-    public IpLimiterCommand(IpLimiter ipLimiter) {
+    public Help(IpLimiter ipLimiter) {
         this.ipLimiter = ipLimiter;
     }
 
