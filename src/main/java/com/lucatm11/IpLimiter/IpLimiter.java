@@ -2,6 +2,7 @@ package com.lucatm11.IpLimiter;
 
 import java.util.HashMap;
 
+import org.bstats.bukkit.Metrics;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -26,6 +27,8 @@ public class IpLimiter extends JavaPlugin {
   public void onEnable() {
     saveDefaultConfig();
     loadConfiguration();
+
+    Metrics metrics = new Metrics(this, 28657);
 
     if(config.kickAllPlayersReload) {
       if(!Bukkit.getOnlinePlayers().isEmpty()) {
