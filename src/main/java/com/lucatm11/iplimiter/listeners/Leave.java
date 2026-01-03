@@ -17,6 +17,6 @@ public class Leave implements Listener {
     public void LeaveEvent(PlayerQuitEvent event) {
         String ip = event.getPlayer().getAddress().getHostName();
 
-        ipLimiter.removeIPConnection(ip);
+        ipLimiter.connection.removeIPConnection(ip);
     }
 }

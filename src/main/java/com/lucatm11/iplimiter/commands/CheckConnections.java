@@ -29,7 +29,7 @@ public class CheckConnections implements CommandExecutor {
         }
 
         String ip = target.getAddress().getHostName();
-        Integer connections = ipLimiter.getConnections(ip);
+        Integer connections = ipLimiter.connection.getConnections(ip);
 
         sender.sendMessage(ipLimiter.messages.checkConnections.replace("{player}", target.getName())
                 .replace("{ip}", ip).replace("{connections}", Integer.toString(connections)));

@@ -1,7 +1,5 @@
 package com.lucatm11.iplimiter;
 
-import java.util.HashMap;
-
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -11,28 +9,12 @@ import com.lucatm11.iplimiter.commands.CommandRouter;
 import com.lucatm11.iplimiter.listeners.Join;
 import com.lucatm11.iplimiter.listeners.Leave;
 import com.lucatm11.iplimiter.utils.Configuration;
+import com.lucatm11.iplimiter.utils.Connection;
 
 public class IpLimiter extends JavaPlugin {
+  public Connection connection;
   public Configuration.Messages messages;
   public Configuration.Config config;
-
-  private HashMap<String, Integer> playersByIP;
-
-  public void addIPConnection(String ipAddress) {
-    if (getConnections(ipAddress) == null) {
-      playersByIP.put(ipAddress, 1);
-    } else {
-      playersByIP.put(ipAddress, getConnections(ipAddress) + 1);
-    }
-  }
-
-  public void removeIPConnection(String ipAddress) {
-    playersByIP.put(ipAddress, getConnections(ipAddress) - 1);
-  }
-
-  public Integer getConnections(String ipAddress) {
-    return playersByIP.get(ipAddress);
-  }
 
   public void onEnable() {
     saveDefaultConfig();
@@ -49,7 +31,8 @@ public class IpLimiter extends JavaPlugin {
       }
     }
 
-    playersByIP = new HashMap<String, Integer>();
+    connection = new Connection();
+    connection.initializeHashMap();
 
     getServer().getPluginManager().registerEvents(new Join(this), this);
     getServer().getPluginManager().registerEvents(new Leave(this), this);
