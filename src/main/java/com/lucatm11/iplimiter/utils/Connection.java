@@ -16,11 +16,11 @@ public class Connection {
         }
     }
 
-    public void addIPConnection(String ipAddress) {
+    public void addConnection(String ipAddress) {
         playersByIP.put(ipAddress, getConnections(ipAddress) + 1);
     }
 
-    public void removeIPConnection(String ipAddress) {
+    public void removeConnection(String ipAddress) {
         if (getConnections(ipAddress) != 1) {
             playersByIP.put(ipAddress, getConnections(ipAddress) - 1);
         } else {
