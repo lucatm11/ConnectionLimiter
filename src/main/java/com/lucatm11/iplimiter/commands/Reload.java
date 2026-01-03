@@ -22,7 +22,7 @@ public class Reload implements CommandExecutor {
         ipLimiter.reloadConfig();
         ipLimiter.loadConfiguration();
 
-        sender.sendMessage(ipLimiter.messages.reloaded);
+        sender.sendMessage(ipLimiter.messages.pluginReloaded);
 
         return true;
     }

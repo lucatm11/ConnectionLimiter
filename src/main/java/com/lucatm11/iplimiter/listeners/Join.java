@@ -20,7 +20,7 @@ public class Join implements Listener {
 
         ipLimiter.connection.initializeConnection(ip);
 
-        if (ipLimiter.connection.getConnections(ip) >= ipLimiter.config.maxIpsAllowed) {
+        if (ipLimiter.connection.getConnections(ip) >= ipLimiter.config.maxConnectionsAllowedPerIp) {
             event.disallow(Result.KICK_OTHER, ipLimiter.messages.tooManyConnections);
         } else {
             ipLimiter.connection.addIPConnection(ip);

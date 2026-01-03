@@ -23,7 +23,7 @@ public class IpLimiter extends JavaPlugin {
     @SuppressWarnings("unused")
     Metrics metrics = new Metrics(this, 28657);
 
-    if (config.kickAllPlayersReload) {
+    if (config.kickAllPlayersOnServerReload) {
       if (!Bukkit.getOnlinePlayers().isEmpty()) {
         for (Player player : Bukkit.getOnlinePlayers()) {
           player.kickPlayer(messages.serverReloadKick);
