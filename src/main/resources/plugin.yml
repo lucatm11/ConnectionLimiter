@@ -1,6 +1,6 @@
 name: iplimiter
 main: com.lucatm11.iplimiter.IpLimiter
-version: B3
+version: B4
 commands:
   iplimiter:
     description: Main command.
