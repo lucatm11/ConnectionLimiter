@@ -6,7 +6,7 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>com.lucatm11</groupId>
-	<artifactId>iplimiter</artifactId>
+	<artifactId>connectionlimiter</artifactId>
 	<version>B5</version>
 
 	<properties>

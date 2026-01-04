@@ -1,17 +1,17 @@
-package com.lucatm11.iplimiter;
+package com.lucatm11.connectionlimiter;
 
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.java.JavaPlugin;
 
-import com.lucatm11.iplimiter.bstats.Metrics;
-import com.lucatm11.iplimiter.commands.CommandRouter;
-import com.lucatm11.iplimiter.listeners.Join;
-import com.lucatm11.iplimiter.listeners.Leave;
-import com.lucatm11.iplimiter.utils.Configuration;
-import com.lucatm11.iplimiter.utils.Connection;
+import com.lucatm11.connectionlimiter.bstats.Metrics;
+import com.lucatm11.connectionlimiter.commands.CommandRouter;
+import com.lucatm11.connectionlimiter.listeners.Join;
+import com.lucatm11.connectionlimiter.listeners.Leave;
+import com.lucatm11.connectionlimiter.utils.Configuration;
+import com.lucatm11.connectionlimiter.utils.Connection;
 
-public class IpLimiter extends JavaPlugin {
+public class ConnectionLimiter extends JavaPlugin {
   public Connection connection;
   public Configuration.Messages messages;
   public Configuration.Config config;
@@ -36,7 +36,7 @@ public class IpLimiter extends JavaPlugin {
 
     getServer().getPluginManager().registerEvents(new Join(this), this);
     getServer().getPluginManager().registerEvents(new Leave(this), this);
-    getCommand("iplimiter").setExecutor(new CommandRouter(this));
+    getCommand("connectionlimiter").setExecutor(new CommandRouter(this));
   }
 
   public void loadConfiguration() {

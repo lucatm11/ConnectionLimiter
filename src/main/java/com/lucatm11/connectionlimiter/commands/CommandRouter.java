@@ -1,20 +1,20 @@
-package com.lucatm11.iplimiter.commands;
+package com.lucatm11.connectionlimiter.commands;
 
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 
-import com.lucatm11.iplimiter.IpLimiter;
+import com.lucatm11.connectionlimiter.ConnectionLimiter;
 
 public class CommandRouter implements CommandExecutor {
     private final Help help;
     private final CheckConnections checkConnections;
     private final Reload reload;
 
-    public CommandRouter(IpLimiter ipLimiter) {
-        this.help = new Help(ipLimiter);
-        this.checkConnections = new CheckConnections(ipLimiter);
-        this.reload = new Reload(ipLimiter);
+    public CommandRouter(ConnectionLimiter plugin) {
+        this.help = new Help(plugin);
+        this.checkConnections = new CheckConnections(plugin);
+        this.reload = new Reload(plugin);
     }
 
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {

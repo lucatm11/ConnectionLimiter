@@ -12,7 +12,7 @@
  *
  * Violations will result in a ban of your plugin and account from bStats.
  */
-package com.lucatm11.iplimiter.bstats;
+package com.lucatm11.connectionlimiter.bstats;
 
 import java.io.BufferedReader;
 import java.io.ByteArrayOutputStream;

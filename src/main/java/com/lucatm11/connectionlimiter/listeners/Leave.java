@@ -1,22 +1,22 @@
-package com.lucatm11.iplimiter.listeners;
+package com.lucatm11.connectionlimiter.listeners;
 
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerQuitEvent;
 
-import com.lucatm11.iplimiter.IpLimiter;
+import com.lucatm11.connectionlimiter.ConnectionLimiter;
 
 public class Leave implements Listener {
-    private final IpLimiter ipLimiter;
+    private final ConnectionLimiter plugin;
 
-    public Leave(IpLimiter ipLimiter) {
-        this.ipLimiter = ipLimiter;
+    public Leave(ConnectionLimiter plugin) {
+        this.plugin = plugin;
     }
 
     @EventHandler
     public void onQuit(PlayerQuitEvent event) {
         String ip = event.getPlayer().getAddress().getHostName();
 
-        ipLimiter.connection.removeConnection(ip);
+        plugin.connection.removeConnection(ip);
     }
 }

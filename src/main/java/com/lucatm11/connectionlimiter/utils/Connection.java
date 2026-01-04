@@ -1,4 +1,4 @@
-package com.lucatm11.iplimiter.utils;
+package com.lucatm11.connectionlimiter.utils;
 
 import java.util.HashMap;
 import java.util.Map;

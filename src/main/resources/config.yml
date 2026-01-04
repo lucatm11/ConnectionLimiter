@@ -12,6 +12,6 @@ messages:
     &cIP Address: &7{ip}
     &cActive connections: &7{connections}
   help: | 
-    &c/iplimiter - &7Show help (this screen).
-    &c/iplimiter reload - &7Reload the configuration of the plugin.
-    &c/iplimiter checkconnections <player> - &7Checks the active connections of a user.
+    &c/connectionlimiter - &7Show help (this screen).
+    &c/connectionlimiter reload - &7Reload the configuration of the plugin.
+    &c/connectionlimiter checkconnections <player> - &7Checks the active connections of a user.
