@@ -1,9 +1,10 @@
 package com.lucatm11.connectionlimiter.listeners;
 
+import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
-import org.bukkit.event.player.AsyncPlayerPreLoginEvent;
-import org.bukkit.event.player.AsyncPlayerPreLoginEvent.Result;
+import org.bukkit.event.player.PlayerLoginEvent;
+import org.bukkit.event.player.PlayerLoginEvent.Result;
 
 import com.lucatm11.connectionlimiter.ConnectionLimiter;
 
@@ -15,13 +16,16 @@ public class Join implements Listener {
     }
 
     @EventHandler
-    public void onPreLogin(AsyncPlayerPreLoginEvent event) {
+    public void onPreLogin(PlayerLoginEvent event) {
+        Player player = event.getPlayer();
         String ip = event.getAddress().getHostName();
 
         plugin.connection.initializeConnection(ip);
 
         if (plugin.connection.getConnections(ip) >= plugin.config.maxConnectionsAllowedPerIp) {
-            event.disallow(Result.KICK_OTHER, plugin.messages.tooManyConnections);
+            if(!player.hasPermission("connectionlimiter.bypass")) {
+                event.disallow(Result.KICK_OTHER, plugin.messages.tooManyConnections);
+            }
         } else {
             plugin.connection.addConnection(ip);
         }
