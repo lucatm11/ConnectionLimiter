@@ -18,6 +18,9 @@ commands:
     &c/connectionlimiter reload - &7Reload the configuration of the plugin.
     &c/connectionlimiter checkconnections <player> - &7Checks the active connections of a user.
 
+notifications:
+  notification-message: "&cConnectionLimiter &8\u25B8 &7{player}&c's entry was disallowed due to reaching the maximum simultaneous connections." #
+
 too-many-connections-kick: "&cYou've reached the limit of simultaneous connections on this IP!"
 
 # https://github.com/lucatm11/ConnectionLimiter/tree/main/src/main/resources
