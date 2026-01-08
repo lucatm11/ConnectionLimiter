@@ -3,8 +3,10 @@ general:
   kick-all-players-on-server-reload: true # Disabling this may lead to errors.
   punishment: # Beware! Runs on each join.
     enable: false
-    command: warn {player}
+    command: warn {player} # Placeholder.
     disallow-entry: true
-alerts:
+notifications:
   enable: true
   censor-ip: true
+
+# https://github.com/lucatm11/ConnectionLimiter/tree/main/src/main/resources

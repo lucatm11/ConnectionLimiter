@@ -16,15 +16,15 @@ public class Configurations {
         public final String incorrectCommand;
 
         public Messages(YamlConfiguration config) {
-            noPermission = Utils.colorize(config.getString("no-permission"));
+            noPermission = Utils.colorize(config.getString("errors.no-permission"));
             tooManyConnections = Utils.colorize(config.getString("too-many-connections-kick"));
-            offlinePlayer = Utils.colorize(config.getString("offline-player"));
-            checkConnections = Utils.colorize(config.getString("checkconnections"));
-            help = Utils.colorize(config.getString("help"));
-            pluginReloaded = Utils.colorize(config.getString("plugin-reloaded"));
-            serverReloadKick = Utils.colorize(config.getString("server-reload-kick"));
-            incorrectUsage = Utils.colorize(config.getString("incorrect-usage"));
-            incorrectCommand = Utils.colorize(config.getString("incorrect-command"));
+            offlinePlayer = Utils.colorize(config.getString("errors.offline-player"));
+            checkConnections = Utils.colorize(config.getString("commands.checkconnections"));
+            help = Utils.colorize(config.getString("commands.help"));
+            pluginReloaded = Utils.colorize(config.getString("reload.plugin-reloaded"));
+            serverReloadKick = Utils.colorize(config.getString("reload.server-reload-kick"));
+            incorrectUsage = Utils.colorize(config.getString("errors.incorrect-usage"));
+            incorrectCommand = Utils.colorize(config.getString("errors.incorrect-command"));
         }
     }
 
